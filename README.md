@@ -4,7 +4,7 @@
 
 ## 📸 Preview
 
-[![img.png](https://i.postimg.cc/yN9qSPbf/img.png)](https://postimg.cc/4KJ2DzZt)
+ [![Snimok-ekrana-ot-2026-05-24-18-34-45.png](https://i.postimg.cc/9FCyQDHK/Snimok-ekrana-ot-2026-05-24-18-34-45.png)](https://postimg.cc/DmpSCyZP)
 
 ---
 
