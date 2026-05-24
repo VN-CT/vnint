@@ -1,0 +1,97 @@
+{
+  "_comment": "Add new languages here. Each key becomes a selectable option in the wizard.",
+
+  "Python": {
+    "gitignore_template": "Python",
+    "pre_commit_hooks": [
+      {
+        "repo": "https://github.com/psf/black",
+        "rev": "23.12.1",
+        "hooks": [{"id": "black"}]
+      },
+      {
+        "repo": "https://github.com/PyCQA/flake8",
+        "rev": "7.0.0",
+        "hooks": [{"id": "flake8"}]
+      }
+    ],
+    "boilerplate": {
+      "files": {
+        "src/__init__.py": "",
+        "src/main.py": "def main():\n    print('Hello from {project}!')\n\nif __name__ == '__main__':\n    main()\n",
+        "tests/__init__.py": "",
+        "tests/test_main.py": "from src.main import main\n\ndef test_main():\n    main()  # smoke test\n",
+        "requirements.txt": "# Add your dependencies here\n"
+      }
+    }
+  },
+
+  "Rust": {
+    "gitignore_template": "Rust",
+    "pre_commit_hooks": [
+      {
+        "repo": "https://github.com/doublify/pre-commit-rust",
+        "rev": "v1.0",
+        "hooks": [{"id": "clippy"}, {"id": "fmt"}]
+      }
+    ],
+    "boilerplate": {
+      "files": {
+        "src/main.rs": "fn main() {\n    println!(\"Hello from {}!\", \"{project}\");\n}\n",
+        "Cargo.toml": "[package]\nname = \"{project}\"\nversion = \"0.1.0\"\nedition = \"2021\"\n\n[dependencies]\nlog = \"0.4\"\nserde = { version = \"1\", features = [\"derive\"] }\n"
+      }
+    }
+  },
+
+  "C++": {
+    "gitignore_template": "C++",
+    "pre_commit_hooks": [
+      {
+        "repo": "https://github.com/pocc/pre-commit-hooks",
+        "rev": "v1.3.5",
+        "hooks": [{"id": "clang-format"}, {"id": "clang-tidy"}]
+      }
+    ],
+    "boilerplate": {
+      "files": {
+        "src/main.cpp": "#include <iostream>\n\nint main() {\n    std::cout << \"Hello from {project}!\" << std::endl;\n    return 0;\n}\n",
+        "CMakeLists.txt": "cmake_minimum_required(VERSION 3.20)\nproject({project})\n\nset(CMAKE_CXX_STANDARD 17)\n\nadd_executable(${{PROJECT_NAME}} src/main.cpp)\n"
+      }
+    }
+  },
+
+  "Go": {
+    "gitignore_template": "Go",
+    "pre_commit_hooks": [
+      {
+        "repo": "https://github.com/dnephin/pre-commit-golang",
+        "rev": "v0.5.1",
+        "hooks": [{"id": "go-fmt"}, {"id": "go-vet"}]
+      }
+    ],
+    "boilerplate": {
+      "files": {
+        "main.go": "package main\n\nimport \"fmt\"\n\nfunc main() {\n    fmt.Println(\"Hello from {project}!\")\n}\n",
+        "go.mod": "module {project}\n\ngo 1.21\n"
+      }
+    }
+  },
+
+  "TypeScript": {
+    "gitignore_template": "Node",
+    "pre_commit_hooks": [
+      {
+        "repo": "https://github.com/pre-commit/mirrors-eslint",
+        "rev": "v8.56.0",
+        "hooks": [{"id": "eslint"}]
+      }
+    ],
+    "boilerplate": {
+      "files": {
+        "src/index.ts": "const greet = (name: string): void => {\n  console.log(`Hello from ${name}!`);\n};\n\ngreet('{project}');\n",
+        "tsconfig.json": "{\n  \"compilerOptions\": {\n    \"target\": \"ES2020\",\n    \"module\": \"commonjs\",\n    \"outDir\": \"./dist\",\n    \"rootDir\": \"./src\",\n    \"strict\": true\n  }\n}\n",
+        "package.json": "{\n  \"name\": \"{project}\",\n  \"version\": \"1.0.0\",\n  \"scripts\": {\n    \"build\": \"tsc\",\n    \"start\": \"node dist/index.js\"\n  },\n  \"devDependencies\": {\n    \"typescript\": \"^5.0.0\"\n  }\n}\n"
+      }
+    }
+  }
+}
